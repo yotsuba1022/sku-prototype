@@ -10,7 +10,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface SkuDetailsRepository extends CassandraRepository<SkuDetails, SkuDetailsKey> {
-
-    //SkuDetails findOneByChannelIdAndSkuIdAndClientId(String channelId, String skuId, String clientId);
-
+    
 }
