@@ -1,11 +1,15 @@
 package idv.clu.sku.prototype.controller;
 
 import idv.clu.sku.prototype.model.SkuDetails;
+import idv.clu.sku.prototype.model.SkuDetailsKey;
 import idv.clu.sku.prototype.service.SkuService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,6 +48,19 @@ public class SkuController {
             @RequestParam(value = "limit", required = false, defaultValue = "10") final String limit,
             @RequestParam(value = "page", required = false, defaultValue = "1") final String page) {
         return skuService.getByQuery(Integer.valueOf(limit), Integer.valueOf(page));
+    }
+
+    @PutMapping("/update")
+    public SkuDetails update(@RequestBody SkuDetails skuDetails) {
+        return skuService.update(skuDetails);
+    }
+
+    @DeleteMapping("/{channelId}/{skuId}/{clientId}")
+    public boolean deleteById(@PathVariable(name = "channelId") String channelId,
+                              @PathVariable(name = "skuId") String skuId,
+                              @PathVariable(name = "clientId") String clientId) {
+        SkuDetailsKey key = skuService.getByTemplate(channelId, skuId, clientId).getSkuDetailsKey();
+        return skuService.deleteByKey(key);
     }
 
 }

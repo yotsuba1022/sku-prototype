@@ -1,4 +1,4 @@
-package idv.clu.sku.prototype.service;
+package idv.clu.sku.prototype.repository;
 
 import idv.clu.sku.prototype.model.SkuDetails;
 import idv.clu.sku.prototype.model.SkuDetailsKey;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author Carl Lu
  */
-public interface SkuService {
+public interface SkuDetailsDataAccess {
 
     SkuDetails createSkuDetails(String skuId);
 
