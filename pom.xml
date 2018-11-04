@@ -24,7 +24,6 @@
         <java.version>1.8</java.version>
         <cassandraunit.version>3.5.0.1</cassandraunit.version>
         <guave.version>19.0</guave.version>
-        <hector-core.version>2.0-0</hector-core.version>
     </properties>
 
     <dependencies>
