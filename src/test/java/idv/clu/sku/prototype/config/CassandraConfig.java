@@ -52,7 +52,6 @@ public class CassandraConfig {
         session.setConverter(converter());
         session.setSchemaAction(SchemaAction.CREATE_IF_NOT_EXISTS);
         return session;
-
     }
 
     @Bean

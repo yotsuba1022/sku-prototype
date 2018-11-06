@@ -59,6 +59,8 @@ public class SkuPrototypeApplicationTests {
      * <p>
      * The workaround is the add the following line of code before invoke cleanEmbeddedCassandra:
      * EmbeddedCassandraServerHelper.getSession();
+     * <p>
+     * This is expected to be fixed in version 3.5.0.2 (Still not released).
      */
     @AfterClass
     public static void stopCassandraEmbedded() {
